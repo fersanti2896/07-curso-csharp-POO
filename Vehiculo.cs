@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace POO {
     internal abstract class Vehiculo {
+        public Vehiculo(string marca) {
+            Marca = marca;
+        }
+
         public string? Marca { get; set; }
         public int AnioCreacion { get; set; }
 

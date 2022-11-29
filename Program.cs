@@ -3,14 +3,14 @@ using POO;
 
 Console.WriteLine("¡Programación Orientada a Objetos!\n");
 
-var carro = new Carro();
+var carro = new Carro("");
 carro.Marca = "Toyota";
 carro.EncenderRadio();
 
-var camion = new Camion();
+var camion = new Camion("");
 camion.Marca = "Mercedes Benz";
 
-var bicicleta = new Bicicleta();
+var bicicleta = new Bicicleta("");
 bicicleta.Marca = "Benoto";
 
 void LeerMarca(Vehiculo vehiculo) {

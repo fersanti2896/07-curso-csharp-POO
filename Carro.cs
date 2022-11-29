@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace POO {
     internal class Carro : Vehiculo {
+        public Carro(string marca) : base(marca) {
+        }
+
         public void EncenderRadio() {
             Console.WriteLine("¡Encendiendo la radio!");
         }

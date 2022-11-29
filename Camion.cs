@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace POO {
     internal class Camion : Vehiculo {
+        public Camion(string marca) : base(marca) {
+        }
+
         public override void reversa() {
             base.reversa();
             Console.WriteLine("¡Beep! ¡Beep! ¡Beep!");
