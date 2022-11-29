@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using POO;
+using Utilidades;
 
 Console.WriteLine("¡Programación Orientada a Objetos!\n");
 
@@ -37,3 +38,8 @@ Console.WriteLine();
 
 /* No se puede instanciar una clase que es abstracta */
 // var veh = new Vehiculo();
+
+/* MODIFICADORES DE ACCESO */
+var clasePublica = new Publica();
+clasePublica.PropPublica = 1;
+clasePublica.metodoPublico();
