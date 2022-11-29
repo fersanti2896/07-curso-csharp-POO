@@ -10,5 +10,9 @@ namespace POO {
             base.reversa();
             Console.WriteLine("¡Beep! ¡Beep! ¡Beep!");
         }
+
+        public override void sonarClaxon() {
+            Console.WriteLine("¡Pon Poooon!");
+        }
     }
 }

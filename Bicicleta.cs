@@ -6,5 +6,8 @@ using System.Threading.Tasks;
 
 namespace POO {
     internal class Bicicleta : Vehiculo {
+        public override void sonarClaxon() {
+            Console.WriteLine("¡Rin Riin!");
+        }
     }
 }

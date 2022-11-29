@@ -9,5 +9,9 @@ namespace POO {
         public void EncenderRadio() {
             Console.WriteLine("¡Encendiendo la radio!");
         }
+
+        public override void sonarClaxon() {
+            Console.WriteLine("¡Bip Bip!");
+        }
     }
 }

@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace POO {
-    internal class Vehiculo {
+    internal abstract class Vehiculo {
         public string? Marca { get; set; }
         public int AnioCreacion { get; set; }
 
         public virtual void reversa() {
             Console.WriteLine("Dando reversa la implementación");
         }
+
+        public abstract void sonarClaxon();
     }
 }

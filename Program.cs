@@ -34,3 +34,6 @@ Console.WriteLine();
 Console.Write("Bicicleta: ");
 bicicleta.reversa();
 Console.WriteLine();
+
+/* No se puede instanciar una clase que es abstracta */
+// var veh = new Vehiculo();
