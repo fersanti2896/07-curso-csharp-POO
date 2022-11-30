@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using POO;
+using POO.Clases;
+using POO.Interfaces;
 using Utilidades;
 
 Console.WriteLine("¡Programación Orientada a Objetos!\n");
@@ -43,3 +45,20 @@ Console.WriteLine();
 var clasePublica = new Publica();
 clasePublica.PropPublica = 1;
 clasePublica.metodoPublico();
+
+void procesar(IInterfaz2 interfaz2) {
+    interfaz2.miMetodoSegundaInterfaz();
+}
+
+/* Ejemplo de inyeccion de dependencias */
+var almacenadorAWS = new AlmacenadorAWS();
+var almacenadorAzure = new AlmacenadorAzure();
+
+var almacenadorControladorAWS = new AlmacenadorController(almacenadorAWS);
+var almacenadorControladorAzure = new AlmacenadorController(almacenadorAzure);
+
+almacenadorControladorAWS.GuardarPoster("imagen.png");
+almacenadorControladorAWS.BorrarPoster("imagen.png");
+
+almacenadorControladorAzure.GuardarPoster("foto.jpg");
+almacenadorControladorAzure.BorrarPoster("foto.jpg");
