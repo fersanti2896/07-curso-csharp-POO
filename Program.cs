@@ -56,10 +56,9 @@ var hostBuilder = Host.CreateDefaultBuilder(args);
 hostBuilder = hostBuilder.ConfigureServices(configurarServicios);
 using var host = hostBuilder.Build();
 
-var almacenadorControlador = host.Services.GetRequiredService<AlmacenadorController>();
+var almacenador = host.Services.GetRequiredService<IAlmacenadorArchivos>();
 
-almacenadorControlador.GuardarPoster("imagen.png");
-almacenadorControlador.BorrarPoster("imagen.png");
+almacenador.Editar("archivo-viejo.png", "archivo.png");
 
 var otroLugar = host.Services.GetRequiredService<DistintoLugar>();
 otroLugar.procesar();

@@ -8,5 +8,10 @@ namespace POO.Interfaces {
     internal interface IAlmacenadorArchivos {
         string Guardar(string archivo);
         void Borrar(string url);
+        string Editar(string urlArchivo, string archivo) {
+            Borrar(urlArchivo);
+            
+            return Guardar(archivo);
+        }
     }
 }
