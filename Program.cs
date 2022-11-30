@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using POO;
 using POO.Clases;
 using POO.Interfaces;
@@ -50,15 +52,20 @@ void procesar(IInterfaz2 interfaz2) {
     interfaz2.miMetodoSegundaInterfaz();
 }
 
-/* Ejemplo de inyeccion de dependencias */
-var almacenadorAWS = new AlmacenadorAWS();
-var almacenadorAzure = new AlmacenadorAzure();
+var hostBuilder = Host.CreateDefaultBuilder(args);
+hostBuilder = hostBuilder.ConfigureServices(configurarServicios);
+using var host = hostBuilder.Build();
 
-var almacenadorControladorAWS = new AlmacenadorController(almacenadorAWS);
-var almacenadorControladorAzure = new AlmacenadorController(almacenadorAzure);
+var almacenadorControlador = host.Services.GetRequiredService<AlmacenadorController>();
 
-almacenadorControladorAWS.GuardarPoster("imagen.png");
-almacenadorControladorAWS.BorrarPoster("imagen.png");
+almacenadorControlador.GuardarPoster("imagen.png");
+almacenadorControlador.BorrarPoster("imagen.png");
 
-almacenadorControladorAzure.GuardarPoster("foto.jpg");
-almacenadorControladorAzure.BorrarPoster("foto.jpg");
+var otroLugar = host.Services.GetRequiredService<DistintoLugar>();
+otroLugar.procesar();
+
+void configurarServicios(IServiceCollection services) {
+    services.AddTransient<IAlmacenadorArchivos, AlmacenadorAzure>();
+    services.AddTransient<AlmacenadorController>();
+    services.AddTransient<DistintoLugar>();
+}
