@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using POO;
 using POO.Clases;
 using POO.Interfaces;
+using POO.Operadores;
 using Utilidades;
 
 Console.WriteLine("¡Programación Orientada a Objetos!\n");
@@ -68,3 +69,10 @@ void configurarServicios(IServiceCollection services) {
     services.AddTransient<AlmacenadorController>();
     services.AddTransient<DistintoLugar>();
 }
+
+/* Sobrecarga de operadores */
+var v1 = new Vector2D { X = 1, Y = 2 };
+var v2 = new Vector2D { X = 1, Y = 2 };
+var v3 = v1 + v2;
+
+Console.WriteLine($"Coordenadas resultante: { v3.X }, { v3.Y }");
